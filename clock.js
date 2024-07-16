@@ -4,19 +4,26 @@ const resetBtn = document.getElementById("resetBtn");
 let millisecond = document.getElementById("millisecond");
 let mlsecund = 0;
 let secundNum = 0;
+let minuteNum = 0;
+let minute = document.getElementById("minute")
 let secund = document.getElementById("secund");
 let intervalID;
 const innerTxt = document.getElementById("innerTxt");
 
 startBtn.addEventListener("click", () => {
   intervalID = setInterval(() => {
-    mlsecund += 1;
+    mlsecund += 10;
     millisecond.innerText = mlsecund;
     console.log("hi");
-    if (mlsecund == 1000) {
+    if (mlsecund > 1000) {
       secundNum += 1;
       secund.innerText = secundNum;
       mlsecund = 0;
+      if (secundNum > 60) {
+      minuteNum += 1;
+      minute.innerText = minuteNum
+      secundNum = 0;
+    }
     }
   });
 });
